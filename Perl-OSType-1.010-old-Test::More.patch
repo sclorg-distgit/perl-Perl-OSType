@@ -1,0 +1,30 @@
+--- t/OSType.t
++++ t/OSType.t
+@@ -1,7 +1,7 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More 0.88;
++use Test::More tests => 19;
+ 
+ use constant NON_EXISTENT_OS => 'titanix'; #the system they said could not go down...
+ 
+@@ -65,5 +65,3 @@ can_ok( $test_pkg, @functions );
+     ok( !is_os_type(),       "$fcn: false if no type provided" );
+ }
+ 
+-done_testing;
+-
+--- xt/author/test-version.t
++++ xt/author/test-version.t
+@@ -17,7 +17,8 @@ my $params = {
+ push @imports, $params
+     if version->parse( $Test::Version::VERSION ) >= version->parse('1.002');
+ 
++plan tests => 2;
++
+ Test::Version->import(@imports);
+ 
+-version_all_ok;
+-done_testing;
++version_all_ok();
